@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>和の美 cafe &amp; art｜京都・宇治の和カフェとギャラリー</title>
+<meta name="description" content="和の美 - お店の紹介文をここに記載します。">
+<link rel="icon" href="images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&family=Source+Sans+3:wght@800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body id="top_page">
+
+<!-- ローディング画面 -->
+<div id="fade"></div>
+<div id="loader"><img class="loader_mark" src="images/logo.png" alt="和の美"></div>
+
+<!-- ドロワーメニュー -->
+<nav id="drawer_menu" aria-hidden="true">
+  <ul>
+    <li><a href="#top_page">ホーム</a></li>
+    <li><a href="#top_menu">メニュー</a></li>
+    <li><a href="#top_about">店舗情報</a></li>
+    <li><a href="#">メディア紹介</a></li>
+    <li><a href="#footer">お問い合わせ</a></li>
+    <li><a href="https://www.instagram.com/wanobi_uji" target="_blank" rel="noopener">Instagram</a></li>
+    <li class="drawer_close"><span>Close</span></li>
+  </ul>
+</nav>
+<div id="drawer_overlay"></div>
+
+<div id="wrapper">
+<div id="wrapper_inner">
+
+  <!-- 左上の装飾 -->
+  <div id="header_bak"></div>
+
+  <!-- ヘッダー -->
+  <div id="header">
+    <div id="header_menu">
+      <div id="sub_header_logo">
+        <a href="#top_page"><img src="images/logo.png" alt="和の美"></a>
+      </div>
+      <div id="header_menu_inner">
+        <ul class="header_menu_list">
+          <li><a href="#top_page">ホーム</a></li>
+          <li><a href="#top_menu">メニュー</a></li>
+          <li><a href="#top_about">店舗情報</a></li>
+          <li><a href="#">メディア紹介</a></li>
+        </ul>
+
+        <div class="header_icons">
+          <a href="https://www.instagram.com/wanobi_uji" target="_blank" rel="noopener" class="svg_waku svg_waku_1" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.3 5.6a1.1 1.1 0 1 1-1.1 1.1 1.1 1.1 0 0 1 1.1-1.1z"/></svg>
+          </a>
+          <a href="#top_access" class="svg_waku svg_waku_2" aria-label="アクセス">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7zm0 4.5A2.5 2.5 0 1 0 14.5 9 2.5 2.5 0 0 0 12 6.5z"/></svg>
+          </a>
+          <a href="#footer" class="svg_waku svg_waku_3" aria-label="お問い合わせ">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.5L4 7v10h16V7l-8 5.5zM4.9 6.5 12 11l7.1-4.5H4.9z"/></svg>
+          </a>
+          <button class="svg_waku svg_waku_4" id="icon-animation" aria-label="メニューを開く">
+            <span class="bar top"></span>
+            <span class="bar middle"></span>
+            <span class="bar bottom"></span>
+            <span class="icon-animation_text">メニュー</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ロゴ＋スライダー -->
+    <div id="header_slider">
+      <div class="hs_col hs_logo_col">
+        <div id="header_logo" class="wow">
+          <img class="logo_main" src="images/logo.png" alt="和の美 wanobi">
+          <div class="top_text"><p class="wow">宇治の庭を望む、和みのひとときを。</p></div>
+        </div>
+      </div>
+      <div class="hs_col hs_slider_col">
+        <div class="h_slider_1 wow">
+          <div class="slide is-active" style="background-image:url('images/hero1.jpg')"></div>
+          <div class="slide" style="background-image:url('images/hero2.jpg')"></div>
+          <div class="slide" style="background-image:url('images/hero3.jpg')"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 波の装飾 -->
+    <div class="wave wow">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="wave_path wave_path1" fill="none" stroke="rgba(251,176,59,0.35)" stroke-width="1.5"
+          d="M0,30 C60,10 120,50 180,30 C240,10 300,50 360,30 C420,10 480,50 540,30 C600,10 660,50 720,30 C780,10 840,50 900,30 C960,10 1020,50 1080,30 C1140,10 1200,50 1260,30 C1320,10 1380,50 1440,30" />
+        <path class="wave_path wave_path2" fill="none" stroke="rgba(251,159,167,0.25)" stroke-width="1.5"
+          d="M0,35 C80,15 160,55 240,35 C320,15 400,55 480,35 C560,15 640,55 720,35 C800,15 880,55 960,35 C1040,15 1120,55 1200,35 C1280,15 1360,55 1440,35" />
+      </svg>
+    </div>
+
+    <div id="scroll">Scroll<div id="scroll_inner"></div></div>
+  </div><!--/header-->
+
+  <div class="kinone_line"></div>
+
+  <!-- News -->
+  <div id="sub_about">
+    <div class="container">
+      <div class="t_title">
+        <div class="top_title wow">News<br><span>和の美からのお知らせ</span></div>
+      </div>
+      <div class="news_col">
+        <div id="about_news" class="wow">
+          <h5>「和の美」からのお知らせ</h5>
+          <p><span class="news_title">ホームページを開設しました</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kinone_line"></div>
+
+  <!-- About -->
+  <div id="top_about">
+    <div class="container">
+      <div class="t_title">
+        <div class="top_title wow">About<br><span>和の美のこと</span></div>
+      </div>
+    </div>
+
+    <div id="kinonenokoto">
+      <div class="container">
+        <div id="siki_img_text" class="wow">
+          <p>宇治、悠久の歴史とお茶の香りが息づく街。四季折々に表情を変える庭を眺めながら過ごす時間。<br>
+          そんな場所で、<span>ホッと一息</span>つける空間。自分の<span>和み</span>をここで見つけて下さい。</p>
+        </div>
+
+        <div id="siki_img">
+          <div class="siki_grid">
+            <div class="siki_cell siki_haru wow"><img src="images/g_engawa.jpg" alt="縁側と庭"></div>
+            <div class="siki_cell siki_natu wow"><img src="images/g_tsukubai.jpg" alt="蹲（つくばい）"></div>
+            <div class="siki_img_title wow">
+              <p><span>四</span><span>季</span><span>折</span><span>々</span></p>
+              <p class="sub_siki_img_title">和の美のしつらえ</p>
+            </div>
+            <div class="siki_cell siki_aki wow"><img src="images/g_lantern.jpg" alt="石灯籠"></div>
+            <div class="siki_cell siki_fuyu wow"><img src="images/g_bamboo.jpg" alt="竹と庭"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div id="kinonenokoto_inner" class="wow">
+          <p>宇治の街なかにたたずむ、庭付きの一軒家。<br>
+          玉じゃりの敷かれたエントランスをくぐり、<br>
+          緑と石灯籠が織りなす日本庭園を眺めながら、<br>
+          静かなひとときをお過ごしいただけます。<br>
+          （全席禁煙となっています）</p>
+        </div>
+
+        <div class="kinonenokoto_img">
+          <div class="gallery_grid">
+            <div class="kinone_img wow"><a href="images/g_entrance.jpg" target="_blank"><img src="images/g_entrance.jpg" alt="入口の看板"></a></div>
+            <div class="kinone_img wow"><a href="images/g_engawa.jpg" target="_blank"><img src="images/g_engawa.jpg" alt="縁側と庭"></a></div>
+            <div class="kinone_img wow"><a href="images/g_gate.jpg" target="_blank"><img src="images/g_gate.jpg" alt="格子戸と石灯籠"></a></div>
+            <div class="kinone_img wow"><a href="images/g_lantern.jpg" target="_blank"><img src="images/g_lantern.jpg" alt="石灯籠"></a></div>
+            <div class="kinone_img wow"><a href="images/g_tsukubai.jpg" target="_blank"><img src="images/g_tsukubai.jpg" alt="蹲（つくばい）"></a></div>
+            <div class="kinone_img wow"><a href="images/g_bamboo.jpg" target="_blank"><img src="images/g_bamboo.jpg" alt="竹と庭"></a></div>
+            <div class="kinone_img wow"><a href="images/art_pigments.jpg" target="_blank"><img src="images/art_pigments.jpg" alt="日本画の岩絵具"></a></div>
+            <div class="kinone_img wow"><a href="images/art_bonsai.jpg" target="_blank"><img src="images/art_bonsai.jpg" alt="盆栽と急須"></a></div>
+          </div>
+          <div class="kinonenokoto_img_setu wow">クリックで拡大画像となります</div>
+        </div>
+
+        <div id="kinonenokoto_inner2" class="wow">
+          <p>格子の障子と畳の座敷、<br>
+          赤い毛氈を敷いた縁側席など、<br>
+          和の趣を大切にしたしつらえの中で、<br>
+          庭を眺めながらゆったりとくつろいでいただけます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kinone_line"></div>
+
+  <!-- Menu -->
+  <div id="top_menu">
+    <div class="container">
+      <div class="t_title">
+        <div class="top_title wow">Menu<br><span>和の美のメニュー</span></div>
+      </div>
+
+      <div id="t_menu_text" class="wow">
+        <p>宇治抹茶を使った抹茶ラテをはじめ、<br>
+        コーヒーやカフェラテなどのドリンク、<br>
+        自家製の甘味・厳選したケーキをご用意しています。<br>
+        季節限定メニューもございます。（テイクアウト可）</p>
+      </div>
+
+      <div class="kobetu_next_waku">
+        <div class="menu_item wow">
+          <img src="images/menu_coffee.jpg" alt="コーヒー">
+          <span class="menu_item_name">コーヒー</span>
+          <span class="menu_item_price">550円</span>
+        </div>
+        <div class="menu_item wow">
+          <img src="images/menu_cafelatte.jpg" alt="カフェラテ">
+          <span class="menu_item_name">カフェラテ</span>
+          <span class="menu_item_price">650円</span>
+        </div>
+        <div class="menu_item wow">
+          <img src="images/menu_matchalatte.jpg" alt="抹茶ラテ">
+          <span class="menu_item_name">抹茶ラテ</span>
+          <span class="menu_item_price">800円</span>
+        </div>
+        <div class="menu_item wow">
+          <img src="images/menu_terrine.jpg" alt="抹茶のテリーヌ">
+          <span class="menu_item_name">抹茶のテリーヌ</span>
+          <span class="menu_item_price">700円</span>
+        </div>
+        <div class="menu_item wow">
+          <img src="images/menu_choco.jpg" alt="チョコレートケーキ">
+          <span class="menu_item_name">チョコレートケーキ</span>
+          <span class="menu_item_price">700円</span>
+        </div>
+        <div class="menu_item wow">
+          <img src="images/menu_cheesecake.jpg" alt="チーズケーキ">
+          <span class="menu_item_name">チーズケーキ</span>
+          <span class="menu_item_price">700円</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kinone_line"></div>
+
+  <!-- 写真スライダー -->
+  <div id="top_img">
+    <div class="top_img_inner wow">
+      <div class="top_img_track">
+        <div><img src="images/g_entrance.jpg" alt=""></div>
+        <div><img src="images/g_engawa.jpg" alt=""></div>
+        <div><img src="images/g_gate.jpg" alt=""></div>
+        <div><img src="images/g_lantern.jpg" alt=""></div>
+        <div><img src="images/g_tsukubai.jpg" alt=""></div>
+        <div><img src="images/g_bamboo.jpg" alt=""></div>
+        <div><img src="images/menu_matchalatte.jpg" alt=""></div>
+        <div><img src="images/menu_cheesecake.jpg" alt=""></div>
+        <!-- ループ用複製 -->
+        <div><img src="images/g_entrance.jpg" alt=""></div>
+        <div><img src="images/g_engawa.jpg" alt=""></div>
+        <div><img src="images/g_gate.jpg" alt=""></div>
+        <div><img src="images/g_lantern.jpg" alt=""></div>
+        <div><img src="images/g_tsukubai.jpg" alt=""></div>
+        <div><img src="images/g_bamboo.jpg" alt=""></div>
+        <div><img src="images/menu_matchalatte.jpg" alt=""></div>
+        <div><img src="images/menu_cheesecake.jpg" alt=""></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kinone_line"></div>
+
+  <!-- Access -->
+  <div id="top_access">
+    <div class="container">
+      <div class="t_title">
+        <div class="top_title wow">Access<br><span>和の美への行き方</span></div>
+      </div>
+      <div id="access_text" class="wow">
+        <p>〒611-0021　京都府宇治市宇治乙方68<br>お気軽にお立ち寄りください。</p>
+      </div>
+      <div class="map_embed wow">
+        <div id="map" role="img" aria-label="和の美 cafe&amp;art の地図"></div>
+      </div>
+      <div class="map_link_wrap">
+        <div class="next_waku wow"><a href="https://maps.app.goo.gl/kQTnK3FkE3KD1vQD9" target="_blank" rel="noopener">Googleマップで確認する</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- フッター -->
+  <div id="footer">
+    <div id="footer_inner">
+      <div class="footer_grid">
+        <div class="footer_left">
+          <div class="footer_logo wow">
+            <img class="footer_logo_img" src="images/logo.png" alt="和の美 wanobi">
+            <div class="footer_logo_text">和の美<span> cafe &amp; art</span></div>
+          </div>
+          <div class="footer_access wow">
+            <div class="footer_access_inner">
+              〒611-0021<br>
+              京都府宇治市宇治乙方68<br>
+              営業時間 10：00～16：00（L.O. 15：30）<br>
+              休業日 不定休<br>
+              ※営業日はInstagramの投稿・営業カレンダーをご確認ください<br>
+              駐車場 お店の裏にコインパーキングあり<br>
+              喫煙席 なし（全席禁煙）<br><br>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer_right">
+          <div class="footer_contact wow">
+            <div class="footer_contact_inner">
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=j.b.lien0410@gmail.com" target="_blank" rel="noopener"><p class="mail">メールでのお問い合わせ</p></a>
+              <p class="tel_no mail_addr"><a href="mailto:j.b.lien0410@gmail.com">j.b.lien0410@gmail.com</a></p>
+            </div>
+          </div>
+          <div class="footer_link">
+            <ul>
+              <li class="wow"><span class="footer_san"></span><a href="#top_page">ホーム</a></li>
+              <li class="wow"><span class="footer_san"></span><a href="#top_menu">メニュー</a></li>
+              <li class="wow"><span class="footer_san"></span><a href="#top_about">店舗情報</a></li>
+              <li class="wow"><span class="footer_san"></span><a href="#">メディア紹介</a></li>
+              <li class="wow"><span class="footer_san"></span><a href="#">お問い合わせ</a></li>
+              <li class="wow"><span class="footer_san"></span><a href="https://www.instagram.com/wanobi_uji" target="_blank" rel="noopener">Instagram</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer_copy wow">Copyright (C) 和の美 cafe &amp; art All Rights Reserved.</div>
+
+</div><!--/wrapper_inner-->
+</div><!--/wrapper-->
+
+<div id="top_navi"><a href="#top_page" aria-label="ページ上部へ"></a></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="js/main.js"></script>
+</body>
+</html>

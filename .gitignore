@@ -1,0 +1,17 @@
+# 撮影直後の未加工写真（サイトでは使用しない・容量が大きいため除外）
+images/Picto*.JPG
+images/コーヒー.JPG
+images/カフェラテ.JPG
+images/抹茶ラテ.JPG
+images/抹茶のテリーヌ.JPG
+images/チョコレートケーキ.JPG
+images/チーズケーキ.JPG
+images/店のロゴ.jpg
+images/20260711.JPG
+images/20270711-2.JPG
+images/sweets.jpg
+images/drink.jpg
+
+# OS / エディタ関連
+.DS_Store
+Thumbs.db
