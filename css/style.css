@@ -733,6 +733,17 @@ button { font-family: inherit; background: none; border: none; cursor: pointer; 
   line-height: 1.8;
 }
 
+.footer_notice_nowrap {
+  white-space: nowrap;
+}
+
+@media (max-width: 576px) {
+  .footer_notice_nowrap {
+    display: inline-block;
+    font-size: 0.8125rem;
+  }
+}
+
 .footer_contact {
   display: flex;
   justify-content: space-evenly;
